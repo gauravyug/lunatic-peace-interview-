@@ -35,6 +35,14 @@ public:
     }
 };
 //This solution find the index in O(n), and in single traversal
+/*
+for input as [37,57,24,19,0,24,49,67,87,87]
+max_value : 57 max_value_till_now : 37 A[2] : 24
+max_value : 57 max_value_till_now : 57 A[3] : 19
+max_value : 57 max_value_till_now : 57 A[4] : 0
+max_value : 57 max_value_till_now : 57 A[5] : 24
+max_value : 57 max_value_till_now : 57 A[6] : 49
+*/
 class Solution {
 public:
     int partitionDisjoint(vector<int>& A) {
