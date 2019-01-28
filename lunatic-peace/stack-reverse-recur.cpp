@@ -15,6 +15,7 @@ void insert_at_bottom(stack <int> &s, int top)
 	insert_at_bottom(s, top);
 	s.push(temp);
 }
+// Recur for 
 void reverse_stack (stack <int> &s)
 {
 	int data;
