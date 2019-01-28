@@ -339,7 +339,7 @@ void bottomView(nodewithhd *root)
 
 void topView(nodewithhd *root)
 {
-        printf("Top View Iterative using Queue:\n");
+     printf("Top View Iterative using Queue:\n");
     if (root == NULL)
         return;
     int hd = 0;
@@ -396,7 +396,7 @@ int treeWithHd()
     root->left->right = newNodeWithHd(3);
     root->right->left = newNodeWithHd(4);
     root->right->right = newNodeWithHd(25);
-    root->right->right = newNodeWithHd(21);
+ 
     root->left->right->left = newNodeWithHd(10);
     root->left->right->right = newNodeWithHd(14);
     cout << "Bottom view of the given binary tree :\n";
