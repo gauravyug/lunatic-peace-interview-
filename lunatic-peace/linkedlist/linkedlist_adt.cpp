@@ -186,6 +186,7 @@ void LinkedList::erase(int index){
         delete node_ptr;
     }
 }
+
 int reverse_list_in_pairs(Node **head_ref, int k){
     Node *curr = *head_ref;
     Node *prev = NULL;
