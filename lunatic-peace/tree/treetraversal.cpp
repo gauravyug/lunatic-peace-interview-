@@ -41,7 +41,7 @@ vector<int> rightSideView(TreeNode* root) {
     return res;
 }
 vector<int> levelorder(TreeNode *root) {
-    if (root == NULL) return;
+    //if (root == NULL) return ;
     queue <TreeNode *> q;
     vector <int> vec;
     q.push(root);
@@ -51,8 +51,10 @@ vector<int> levelorder(TreeNode *root) {
         while (count > 0) {
             root = q.front();
             q.pop();
-            if (root != NULL)
+            if (root != NULL) {
                 vec.push_back(root->val);
+                cout << "val =" << root->val;
+            }
 
             if (root) {
                 if(root->left != NULL)
@@ -62,6 +64,7 @@ vector<int> levelorder(TreeNode *root) {
             }
             count--;
         }
+        cout << "\n";
         vec.push_back(-1);
     }
     //for(auto t=vec.begin(); t!=vec.end(); ++t)

@@ -48,29 +48,24 @@ void printList(Node *node)
     printf("\n");
 }
 
-Node* addOne(Node* head)
-{
+Node* addOne(Node* head) {
     Node* first_non_9 = NULL;
     Node* cur = head;
-    while(cur)
-    {
+    while(cur) {
         if(cur->data != 9)
             first_non_9 = cur;
         cur = cur->next;
     }
     Node* newHead = head;
-    if(first_non_9 == NULL)
-    {
+    if(first_non_9 == NULL) {
         newHead = createNode(1);
         newHead->next = head;
     }
-    else
-    {
+    else {
         first_non_9->data++;
     }
    cur = first_non_9 ? first_non_9->next : head;
-    while(cur)	
-    {
+    while(cur)	 {
         cur->data = 0;
         cur = cur->next;
     }

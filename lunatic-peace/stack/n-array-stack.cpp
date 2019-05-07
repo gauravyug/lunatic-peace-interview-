@@ -76,7 +76,7 @@ int Stacks::pop(int stack) {
 int main()
 {
 	 // Let us create 3 stacks in an array of size 10
-    int k = 3, n = 10;
+    int k = 3, n = 6;
     Stacks ks(k, n);
  
     // Let us put some items in stack number 2
@@ -106,7 +106,7 @@ int main()
 	ks.print (3, 6);
 	cout << "Pushing 8 to 2 stack \n";
 	ks.push(8, 2);
-	ks.print (3, 6);
+//	ks.print (3, 6);
     cout << "Popped element from stack 2 is " << ks.pop(2) << endl;
     cout << "Popped  from stack 1 is " << ks.pop(1) << endl;
     cout << "Popped element from stack 0 is " << ks.pop(0) << endl;

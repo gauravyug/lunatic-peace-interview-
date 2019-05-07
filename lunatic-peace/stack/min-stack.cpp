@@ -19,7 +19,7 @@ class MinStackUsingTwoStacks {
     /*
         In this class we'll use two stack.
     */
-    stack<int> s1;
+   stack<int> s1;
    stack<int> s2;
 public:
     /** initialize your data structure here. */
