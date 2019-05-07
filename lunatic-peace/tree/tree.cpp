@@ -339,7 +339,7 @@ void bottomView(nodewithhd *root)
 
 void topView(nodewithhd *root)
 {
-     printf("Top View Iterative using Queue:\n");
+     printf("Vertical order using Queue:\n");
     if (root == NULL)
         return;
     int hd = 0;

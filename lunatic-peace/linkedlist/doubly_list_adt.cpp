@@ -29,11 +29,11 @@ DoublyLinkedList::DoublyLinkedList()
 */
 DoublyLinkedList::~DoublyLinkedList()
 {
-   /* Node *next_node=NULL; 
-    for (Node *node_ptr=this->head; node_ptr != NULL; node_ptr=next_node) { 
+    DNode *next_node=NULL; 
+    for (DNode *node_ptr=this->head; node_ptr != NULL; node_ptr=next_node) { 
         next_node = node_ptr->next;
         delete node_ptr; 
-    }*/
+    }
 }
 
 /*
@@ -200,7 +200,7 @@ void DoublyLinkedList::moveToHead(DNode *node)
 
 }
 
-void DoublyLinkedList::removeTail()
+/*void DoublyLinkedList::removeTail()
 {
     this->length--;
     if (this->head == this->tail) {
@@ -214,7 +214,7 @@ void DoublyLinkedList::removeTail()
         delete del;
     }
 }
-
+*/
 int main()
 {
     DoublyLinkedList* list = new DoublyLinkedList();

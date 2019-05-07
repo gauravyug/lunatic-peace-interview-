@@ -8,6 +8,67 @@ public:
     }
 };
 
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class ReverseList {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+       if(!head) 
+           return NULL;
+        ListNode *cur = head, *prev = NULL, *tmp = NULL;
+        ListNode* next = head;
+        for(int i = 0; i < k; i++){ // Find next pointer after k
+            if(!next) 
+                return head;
+            next = next->next;
+        }
+     
+        while(cur != next){ // while curr is not equals to next, reverse the nodes
+            tmp = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = tmp;
+        }
+        head->next = reverseKGroup(cur, k);
+        return prev;
+    }
+};
+
+
+
+#include<stdio.h>
+int main()
+{
+    int t,n;
+    long i,b,ctr1;
+    scanf("%d",&t);
+    while(t--)
+    {
+        ctr1=0;
+        scanf("%d %ld",&n,&b);
+        for(i=1;i<=n;i++)
+        {
+            if((ctr1 + i)!= b)
+            {
+                ctr1=ctr1+i;
+            }
+            else
+            if((ctr1 + i)== b && b!=1)
+            {
+                ctr1=ctr1-(i-1);
+                ctr1=ctr1+i;
+            }
+        }
+        printf("%ld\n",ctr1);
+    }
+    return 0;
+}
 class MyLinkedList {
 public:
     /** Initialize your data structure here. */
