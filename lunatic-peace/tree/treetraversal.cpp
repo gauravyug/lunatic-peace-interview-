@@ -10,6 +10,35 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
+bool isLeaf(TreeNode *root){
+    return root->left == NULL && root->right == NULL;
+}
+void rightboundaryandleaves(TreeNode *root, bool is_boundary){
+    if (root != NULL) {
+        rightboundaryandleaves(root->left, is_boundary && root->right == NULL);
+        rightboundaryandleaves(root->right, is_boundary);
+         if (is_boundary || isLeaf(root))
+            cout << root->val << " ";
+    }    
+}
+
+void leftboundaryandleaves(TreeNode *root, bool is_boundary){
+    if (root != NULL) {
+         if (is_boundary || isLeaf(root))
+            cout << root->val << " ";
+        leftboundaryandleaves(root->left, is_boundary);
+        leftboundaryandleaves(root->right, is_boundary && root->left == NULL);
+    }
+}
+
+void printBoundary(TreeNode *root)
+{
+     if (root != NULL) {
+         cout << root->val << " ";
+     }
+     leftboundaryandleaves(root->left, true);
+     rightboundaryandleaves(root->right, true);
+}
 vector<int> rightSideView(TreeNode* root) {
     vector <int> res;
     if (root == NULL)
@@ -70,6 +99,31 @@ vector<int> levelorder(TreeNode *root) {
     //for(auto t=vec.begin(); t!=vec.end(); ++t)
 	//std::cout << *t << '\n';
     return vec;
+}
+vector<vector<int>> levelorderII(TreeNode *root)
+{
+    vector<vector<int>> result;
+    queue<TreeNode*> q;
+    q.push(root);
+    q.push(NULL);
+    while (!q.empty()) {
+        vector<int> level;
+        int count = q.size();
+        while (count > 0) {
+            TreeNode *temp = q.front();
+            q.pop() ;
+            if (temp != NULL) {
+                level.push_back(temp->val);
+                q.push(temp->left);
+                q.push(temp->right);
+            }
+            count--;
+        }
+        if (level.size() > 0) {
+            result.push_back(level);
+        }
+    }
+    return result;
 }
 vector<int> leftSideView(TreeNode* root) {
     vector <int> res;
@@ -140,7 +194,20 @@ int main(){
 	root->right->right = new TreeNode(15); 
 	root->right->left = new TreeNode(12); 
 	root->right->right->left = new TreeNode(14);
-    levelorder(root); 
-    //boundry_traversal(root);
+    /*
+                    10     ---------------------I
+            2               3 ------------------II
+        7       8       12        15------------III
+                              14----------------IV
+    */
+    vector<vector<int>> ret = levelorderII(root);
+    for(auto& row:ret){
+        for(auto& col:row){
+            cout << col << " "  ;
+        }
+        cout << endl;
+    }
+ 
+    boundry_traversal(root);
     return 0;
 }
