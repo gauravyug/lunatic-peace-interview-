@@ -11,6 +11,7 @@
 
 */
 using namespace std;
+using namespace std::chrono;
 
 struct ListNode {
     int data;
@@ -98,12 +99,18 @@ int append(ListNode **head_ref, int value)
 int main()
 {
     ListNode *head = NULL;
-    for (int i = 1; i < 21; i++) {
+    for (int i = 1; i < 100001; i++) {
         append(&head, i);
     }
     print_list(head);
+    //auto start = high_resolution_clock::now(); 
+    clock_t startTime = clock();
     cout << "\n";
-    delete_list_in_batch(&head, 5,3);
-    print_list(head); 
+    delete_list_in_batch(&head, 1005,30);
+    cout << double( clock() - startTime ) / (double)CLOCKS_PER_SEC<< " seconds." << endl;    
+    //auto stop = high_resolution_clock::now();
+    //auto duration = duration_cast<microseconds>(stop - start); 
+  
+    //print_list(head); 
     return 0;
 }
